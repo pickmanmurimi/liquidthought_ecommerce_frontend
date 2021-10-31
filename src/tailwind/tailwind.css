@@ -3,5 +3,14 @@
 @tailwind utilities;
 
 body {
-    @apply font-Dosis;
+    @apply font-Montserrat;
+}
+
+.form-control {
+    @apply shadow rounded py-2 px-4 w-full text-sm;
+    @apply  focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-transparent;
+}
+
+.logo-box {
+    @apply  text-8xl text-white font-sans rounded-3xl bg-purple-500 text-center w-28 h-28;
 }

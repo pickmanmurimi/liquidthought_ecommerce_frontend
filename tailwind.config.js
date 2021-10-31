@@ -6,12 +6,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Dosis': ['Dosis', 'sans-serif']
+        'Montserrat': ['Montserrat', 'sans-serif']
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      border: ['active', 'focus']
+    },
   },
   plugins: [],
 }
