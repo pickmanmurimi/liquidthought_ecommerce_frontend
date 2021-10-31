@@ -9,5 +9,16 @@ export default [
             title: 'Home',
             icon: '',
         },
+    },
+    {
+        path: '/register',
+        component: () => import('../Views/Register.vue'),
+        name: 'Register',
+        meta: {
+            requiresAuth: false,
+            onmenu: false,
+            title: 'Register',
+            icon: '',
+        },
     }
 ];

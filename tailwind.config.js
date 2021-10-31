@@ -12,7 +12,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      border: ['active', 'focus']
+      border: ['active', 'focus'],
+      textColor: []
     },
   },
   plugins: [],

@@ -11,6 +11,11 @@ body {
     @apply  focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-transparent;
 }
 
+.form-error {
+    @apply ring-1 ring-red-300 !important;
+}
+
 .logo-box {
-    @apply  text-8xl text-white font-sans rounded-3xl bg-purple-500 text-center w-28 h-28;
+    @apply font-bold md:text-8xl text-white font-sans rounded-xl md:rounded-3xl text-center w-32 h-28 text-3xl;
+    @apply bg-gradient-to-r from-purple-500 to-pink-500;
 }
