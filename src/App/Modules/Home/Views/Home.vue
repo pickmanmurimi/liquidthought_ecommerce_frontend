@@ -42,13 +42,14 @@
 
         <div data-aos="fade-right"  class="w-full lg:p-5">
           <h3 class="text-xl mb-5 font-Handlee text-gray-50 bg-purple-400 inline px-2"># New product</h3>
-          <h1 class="text-5xl lg:text-6xl mb-5 font font-semibold text-gray-800">Amazing Product</h1>
+          <h1 class="text-5xl lg:text-6xl mb-5 font font-semibold text-gray-800 mt-10">Amazing Product</h1>
 
           <p class="font-light text-gray-500 text-xl max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipisicing
             elit, sed do
             eius tempor incididunt ut labore et dolore, eius tempor incididunt ut labore et dolore.</p>
 
-          <button class="text-2xl mt-10 rounded-xl bg-purple-400 text-white px-4 py-4 font-light"> SHOP NOW</button>
+          <button class="text-2xl mt-10 rounded-xl border border-purple-400 text-purple-500 px-4 py-4 font-medium">
+            SHOP NOW</button>
         </div>
 
         <!--        left image lg-->
@@ -58,23 +59,24 @@
 
       </div>
       <!--      services-->
-      <div data-aos="fade-up" class="lg:flex justify-evenly lg:px-60 px-10 py-20 bg-gray-50 lg:space-x-20">
+      <div data-aos="fade-up" class="md:flex justify-evenly lg:px-10 xl:px-60 px-10 py-20 bg-gray-50
+      lg:space-x-10 xl:space-x-20 md:space-x-3">
 
-        <div class="mb-10">
+        <div  data-aos="fade-left" class="mb-10">
           <i class="ti-bag text-6xl text-purple-800"></i>
           <h2 class="text-gray-500 text-xl my-3 font-bold">Free Shipping</h2>
           <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
             tempor incididunt ut labore et dolore, eius tempor incididunt ut labore et dolore.</p>
         </div>
 
-        <div class="mb-10">
+        <div  data-aos="fade-down" class="mb-10">
           <i class="ti-comments-smiley text-6xl text-purple-800"></i>
           <h2 class="text-gray-500 text-xl my-3 font-bold">Customer Support</h2>
           <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
             tempor incididunt ut labore et dolore, eius tempor incididunt ut labore et dolore.</p>
         </div>
 
-        <div class="mb-10">
+        <div  data-aos="fade-right" class="mb-10">
           <i class="ti-briefcase text-6xl text-purple-800"></i>
           <h2 class="text-gray-500 text-xl my-3 font-bold">Secure Payments</h2>
           <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
@@ -84,12 +86,12 @@
 
 
       <!--      products-->
-      <div data-aos="fade-up" class="text-center py-20 px-10 lg:px-60">
+      <div data-aos="fade-up" class="text-center py-20 px-10 lg:px-20 xl:px-60">
         <h2 class="text-4xl font-semibold mb-10">Products</h2>
         <p class="font-light mb-20 text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius</p>
 
         <!--        product list-->
-        <div class="grid grid-cols-1 md:grid-cols-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-10">
 
           <!--          product 1-->
           <div data-aos="fade-up" class="max-w-sm bg-white rounded-3xl p-4 text-left relative mb-10 shadow-xl">
