@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body, * {
     @apply font-Montserrat;
+}
+
+body, html {
+    height: 100%;
 }
 
 .form-control {
@@ -18,4 +22,8 @@ body {
 .logo-box {
     @apply font-bold md:text-8xl text-white font-sans rounded-xl md:rounded-3xl text-center w-32 h-28 text-3xl;
     @apply bg-gradient-to-r from-purple-500 to-pink-500;
+}
+
+.btn {
+    @apply bg-purple-500 px-2 py-2 rounded-xl text-white w-full hover:shadow-xl;
 }

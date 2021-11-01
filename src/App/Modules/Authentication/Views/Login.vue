@@ -1,7 +1,5 @@
 <template>
-  <div class="bg-gray-100 h-screen flex justify-center items-center relative">
-    <span class=" absolute font-bold top-0 left-0 m-5 logo-box">Q</span>
-
+  <AuthLayout>
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!--    login card-->
     <!-- ----------------------------------------------------------------------------------------------------------- -->
@@ -19,25 +17,12 @@
         <!--    login form-->
         <!-- ------------------------------------------------------------------------------------------------------- -->
         <form class="mt-5 border-t pt-5">
-          <div class="mb-5">
-            <label for="email" class="text-gray-500 text-sm">Email</label>
-            <div class="relative focus-within:text-purple-500 flex text-gray-500 items-center">
-              <input type="text" id="email" placeholder="john@example.com"
-                     class="form-control text-gray-500">
-              <i class="ti-email absolute right-2"></i>
-            </div>
 
-          </div>
+          <BaseInput name="email" text="Email" type="email" icon="ti-email" placeholder="john@example.com" />
 
-          <div class="mb-5">
-            <label for="password" class="text-gray-500 text-sm">Password</label>
-            <div class="relative focus-within:text-purple-500 flex text-gray-500 items-center">
-              <input type="password" id="password" placeholder="secret"
-                     class="form-control text-gray-500">
-              <i class="ti-lock absolute right-2"></i>
-            </div>
-          </div>
-          <button @click.prevent="login" class="bg-purple-500 px-2 py-2 rounded-xl text-white w-full hover:shadow-xl">
+          <BaseInput name="password" text="Password" type="email" icon="ti-lock" placeholder="secret" />
+
+          <button @click.prevent="login" class="btn">
             Login
           </button>
 
@@ -49,12 +34,14 @@
         </form>
       </div>
     </div>
-  </div>
+  </AuthLayout>
 </template>
 
 <script setup lang="ts">
 
 import {Router, useRouter} from "vue-router";
+import BaseInput from "../../../Common/Componets/Forms/BaseInput.vue";
+import AuthLayout from "../Componets/AuthLayout.vue";
 
 const router: Router = useRouter();
 
