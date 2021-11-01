@@ -40,7 +40,7 @@
         <!--        small img left-->
         <!--        <img src="/products/lebron4.png" class="lg:hidden min-h-32 absolute -right-32" style="" alt="lebron1">-->
 
-        <div data-aos="fade-right"  class="w-full lg:p-5">
+        <div data-aos="fade-right" class="w-full lg:p-5">
           <h3 class="text-xl mb-5 font-Handlee text-gray-50 bg-purple-400 inline px-2"># New product</h3>
           <h1 class="text-5xl lg:text-6xl mb-5 font font-semibold text-gray-800 mt-10">Amazing Product</h1>
 
@@ -49,7 +49,8 @@
             eius tempor incididunt ut labore et dolore, eius tempor incididunt ut labore et dolore.</p>
 
           <button class="text-2xl mt-10 rounded-xl border border-purple-400 text-purple-500 px-4 py-4 font-medium">
-            SHOP NOW</button>
+            SHOP NOW
+          </button>
         </div>
 
         <!--        left image lg-->
@@ -62,21 +63,21 @@
       <div data-aos="fade-up" class="md:flex justify-evenly lg:px-10 xl:px-60 px-10 py-20 bg-gray-50
       lg:space-x-10 xl:space-x-20 md:space-x-3">
 
-        <div  data-aos="fade-left" class="mb-10">
+        <div data-aos="fade-left" class="mb-10">
           <i class="ti-bag text-6xl text-purple-800"></i>
           <h2 class="text-gray-500 text-xl my-3 font-bold">Free Shipping</h2>
           <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
             tempor incididunt ut labore et dolore, eius tempor incididunt ut labore et dolore.</p>
         </div>
 
-        <div  data-aos="fade-down" class="mb-10">
+        <div data-aos="fade-down" class="mb-10">
           <i class="ti-comments-smiley text-6xl text-purple-800"></i>
           <h2 class="text-gray-500 text-xl my-3 font-bold">Customer Support</h2>
           <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
             tempor incididunt ut labore et dolore, eius tempor incididunt ut labore et dolore.</p>
         </div>
 
-        <div  data-aos="fade-right" class="mb-10">
+        <div data-aos="fade-right" class="mb-10">
           <i class="ti-briefcase text-6xl text-purple-800"></i>
           <h2 class="text-gray-500 text-xl my-3 font-bold">Secure Payments</h2>
           <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
@@ -245,13 +246,23 @@
 </script>
 
 <style scoped>
+.bg-img {
+  background-image: url("@assets/images/hugewaves.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100vw;
+}
+
 @media screen and (max-width: 768px) {
   .bg-img {
     background-image: url("@assets/products/lebron4.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size:auto;
+    background-size: auto;
+    background-position: center;
   }
 }
+
 
 </style>
