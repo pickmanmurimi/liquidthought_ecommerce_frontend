@@ -2,7 +2,7 @@
   <!--    profile nav-->
   <div class="flex justify-between bg-white py-5 px-2 lg:px-32 text-sm ">
     <div>
-      <a href="#" class="mr-2 lg:mx-4">My account</a>
+      <a href="#" class="mr-2 lg:mx-4">Create account</a>
       <span>|</span>
       <a href="#" class="mx-2 lg:mx-4">Login</a>
     </div>
@@ -15,14 +15,16 @@
       <div>
         <!--        Logo-->
         <!--          <i class="ti-flickr text-5xl text-purple-500"></i>-->
-        <h1 class="text-2xl lg:text-3xl font-bold">Liquid Shop <span
-            class="font-bold text-5xl text-red-500">.</span></h1>
+        <router-link :to="{name:'Home'}" class="text-2xl lg:text-3xl font-bold">Liquid Shop <span
+            class="font-bold text-5xl text-red-500">.</span></router-link>
       </div>
 
       <div>
         <!--        bag icon-->
         <div class="relative">
-          <i class="ti-shopping-cart text-3xl lg:text-5xl"></i>
+<!--          replace with full cart when order is places :)-->
+<!--          <i class="ti-shopping-cart-full text-3xl lg:text-5xl"></i>-->
+          <ShoppingBag :size="44"></ShoppingBag>
           <span class="h-5 w-5 lg:h-8 lg:w-8 block bg-purple-500 rounded-full absolute -top-2 -right-1
           flex items-center font-bold text-white justify-center">1</span>
         </div>
@@ -32,6 +34,8 @@
 </template>
 
 <script setup lang="ts">
+import {ShoppingBag} from 'lucide-vue-next';
+
 </script>
 
 <style scoped>

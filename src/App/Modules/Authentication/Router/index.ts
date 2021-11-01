@@ -7,7 +7,6 @@ export default [
             requiresAuth: false,
             onmenu: false,
             title: 'Home',
-            icon: '',
         },
     },
     {
@@ -18,7 +17,6 @@ export default [
             requiresAuth: false,
             onmenu: false,
             title: 'Register',
-            icon: '',
         },
     }
 ];

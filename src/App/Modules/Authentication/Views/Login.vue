@@ -3,13 +3,13 @@
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!--    login card-->
     <!-- ----------------------------------------------------------------------------------------------------------- -->
-    <div class=" rounded-3xl bg-white flex shadow-2xl overflow-hidden">
+    <div class=" rounded-3xl flex shadow-2xl overflow-hidden">
 
       <div class=" hidden lg:block max-w-lg bg-gray-100 items-center justify-center p-8 flex ">
-        <img class="object-cover" src="@assets/images/authbg.png" alt="auth bg">
+        <img class="object-cover" src="@assets/products/lebron6.png" alt="auth bg">
       </div>
 
-      <div class="p-12 max-w-xl">
+      <div class="p-12 max-w-xl bg-white opacity-95">
         <h1 class="text-3xl">Welcome to Liquid Shop 👋</h1>
         <p class="text-gray-400 mt-2 font-light">Please sign-in to your account.</p>
 
@@ -22,7 +22,7 @@
 
           <BaseInput name="password" text="Password" type="email" icon="ti-lock" placeholder="secret" />
 
-          <button @click.prevent="login" class="btn">
+          <button @click.prevent="login" class="btn w-full">
             Login
           </button>
 

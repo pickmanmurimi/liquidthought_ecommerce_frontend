@@ -25,7 +25,11 @@ body, html {
 }
 
 .btn {
-    @apply bg-purple-500 px-2 py-2 rounded-xl text-white w-full hover:shadow-xl;
+    @apply bg-purple-500 px-3 py-2 rounded text-white hover:shadow-xl;
+}
+
+.btn-lg {
+    @apply bg-purple-500 px-4 py-4 rounded-xl text-white hover:shadow-xl;
 }
 
 .animate-all {

@@ -7,7 +7,16 @@ export default [
             requiresAuth: false,
             onmenu: false,
             title: 'Home',
-            icon: 'NewspaperIcon',
+        },
+    },
+    {
+        path: '/product/:uuid',
+        component: () => import('../Views/ViewProduct.vue'),
+        name: 'ViewProduct',
+        meta: {
+            requiresAuth: false,
+            onmenu: false,
+            title: 'ViewProduct',
         },
     }
 ];

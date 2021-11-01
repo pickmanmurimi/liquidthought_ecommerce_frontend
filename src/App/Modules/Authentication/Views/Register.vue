@@ -1,11 +1,11 @@
 <template>
   <AuthLayout>
     <!--    login card-->
-    <div class=" rounded-3xl bg-white flex shadow-2xl border overflow-hidden">
-      <div class=" hidden lg:block max-w-lg bg-gray-100 items-center justify-center flex ">
-        <img class="h-full w-full object-cover" src="@assets/images/img.png" alt="auth bg">
+    <div class=" rounded-3xl flex shadow-2xl border overflow-hidden">
+      <div class=" hidden lg:block max-w-lg bg-gray-100  items-center justify-center flex ">
+        <img class="h-full w-full object-contain" src="@assets/products/lebron7.png" alt="auth bg">
       </div>
-      <div class="p-12 max-w-xl">
+      <div class="p-12 max-w-xl bg-white opacity-95">
         <h1 class="text-3xl">Start shopping on Liquid 🚀</h1>
         <p class="text-gray-400 mt-2 font-light">Fill the form below to create your account.</p>
         <!--        login form-->
@@ -27,7 +27,7 @@
           <BaseInput name="password_confirmation" text="Password" type="password" icon="ti-lock" placeholder="secret" />
 
           <!--        signup button-->
-          <button class="btn">Sign up</button>
+          <button class="btn w-full">Sign up</button>
 
           <div class="mt-5">
             <small>Already signed up?

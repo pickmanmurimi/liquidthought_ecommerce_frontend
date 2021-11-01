@@ -1,6 +1,6 @@
 <template>
   <!--      products-->
-  <div data-aos="fade-up" class="text-center py-20 px-10 lg:px-20 xl:px-60">
+  <div data-aos="fade-up" class="text-center py-20 px-10 lg:px-20 xl:px-40 2xl:px-60">
     <h2 class="text-4xl font-semibold mb-10">Products</h2>
     <p class="font-light mb-20 text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius</p>
 
@@ -32,6 +32,16 @@
                    description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                        eius tempor incididunt"
                    image="/products/lebron5.png" price="$9.99"></ProductCard>
+
+      <ProductCard data-aos="fade-right" name="Lebron Soldier 6"
+                   description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                       eius tempor incididunt"
+                   image="/products/lebron7.png" price="$9.99"></ProductCard>
+
+      <ProductCard data-aos="fade-right" name="Lebron Soldier 6"
+                   description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                       eius tempor incididunt"
+                   image="/products/lebron8.png" price="$9.99"></ProductCard>
 
       <ProductCard data-aos="fade-right" name="Lebron Soldier 6"
                    description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

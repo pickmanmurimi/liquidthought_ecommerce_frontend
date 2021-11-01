@@ -11,12 +11,15 @@
 
     </div>
 
+    <FooterNav></FooterNav>
+
   </div>
 
 </template>
 
 <script setup lang="ts">
 import NavTop from "./NavTop.vue";
+import FooterNav from "./FooterNav.vue";
 </script>
 
 <style scoped>
