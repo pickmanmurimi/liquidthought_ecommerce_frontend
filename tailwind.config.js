@@ -7,13 +7,18 @@ module.exports = {
     extend: {
       fontFamily: {
         'Montserrat': ['Montserrat', 'sans-serif'],
-        'Handlee': ['Handlee', 'cursive']
+        'Handlee': ['Handlee', 'cursive'],
+        'Dosis': ['Dosis', 'sans-serif']
       }
     },
   },
   variants: {
     extend: {
       border: ['active', 'focus'],
+      scale: ['group-hover'],
+      rotate: ['group-hover'],
+      translate: ['group-hover'],
+      display: ['group-hover'],
       textColor: []
     },
   },
