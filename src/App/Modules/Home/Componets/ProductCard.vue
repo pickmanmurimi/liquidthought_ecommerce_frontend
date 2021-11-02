@@ -12,7 +12,7 @@
             </span>
 
     <!--            img-->
-    <div class="group relative cursor-pointer" @click="viewProduct('asjdd-alnmsd-sadsf-dfscvfdg')">
+    <div class="group relative">
       <img :src="image" alt="lebron1" class="my-4 animate-all product-card-image
             transform scale-90 group-hover:scale-150 group-hover:-translate-y-10">
     </div>

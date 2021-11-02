@@ -10,9 +10,9 @@
         <div class="lg:flex lg:space-x-10 2xl:space-x-20 ">
 
           <!--        product image-->
-          <div class="max-w-3xl mb-10 z-30">
-            <img src="/products/lebron6.png"
-                 class="min-h-96 animate-all group-hover:-translate-y-14 product-image"
+          <div class="max-w-3xl mb-10 z-30 group">
+            <img src="/products/lebron8.png"
+                 class="min-h-96 animate-all transform group-hover:-translate-y-14 group-hover:scale-150 product-image"
                  alt="lebron1">
           </div>
 
@@ -50,7 +50,7 @@
 
 <!--      additional details-->
 
-      <div class=" py-20 px-5 md:px-20 xl:px-40 2xl:px-60">
+      <div class=" py-20 px-5 md:px-20 xl:px-40 2xl:px-60 overflow-x-hidden">
 
         <div class="lg:flex lg:space-x-10 2xl:space-x-20 ">
 
@@ -83,7 +83,7 @@
 
       <!--      related products-->
 
-      <div class="bg-gray-50 py-20 px-5 md:px-20 xl:px-40 2xl:px-60">
+      <div class="bg-gray-50 py-20 px-5 md:px-20 xl:px-40 2xl:px-60 overflow-x-hidden">
 
         <h1 class="text-3xl font-bold mb-5 text-gray-500">Related Products</h1>
 

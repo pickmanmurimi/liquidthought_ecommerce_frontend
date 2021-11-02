@@ -7,15 +7,18 @@
 
     <div data-aos="fade-right" class="w-full p-5 md:p-10 lg:p-20 rounded-3xl shadow-2xl relative mb-20">
       <h3 class="text-xl mb-5 font-Handlee text-gray-50 bg-purple-400 inline px-2 z-10"># New arrival</h3>
-      <h1 class="text-5xl lg:text-6xl mb-5 font-bold text-purple-9\00 mt-10">Signed Lebron Soldier 10</h1>
+      <h1 class="text-5xl lg:text-6xl mb-5 font-bold text-gray-800 mt-10">Signed Lebron Soldier 10</h1>
 
       <p class="font-light text-gray-900 text-xl max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipisicing
         elit, sed do</p>
 
       <button class="text-3xl absolute flex items-center justify-center -bottom-8 right-5
           rounded-full border border-purple-400 bg-purple-500 text-gray-50 h-20 w-20 font-medium">
-        <i class="ti-arrow-right mx-3"></i>
+        <i class="ti-arrow-down mx-3"></i>
       </button>
+      <img src="/products/lebron8.png"
+           class="min-h-96 transform absolute rotate-45 -translate-x-10 animate-all hover:-translate-y-14"
+           alt="lebron1">
     </div>
 
     <!--        left image lg-->

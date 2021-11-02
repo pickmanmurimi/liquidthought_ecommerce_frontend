@@ -1,5 +1,5 @@
 <template>
-  <div data-aos="fade-up" class="md:flex justify-evenly lg:px-10 xl:px-60 px-10 py-20 bg-gray-50
+  <div data-aos="fade-up" class="md:flex justify-evenly lg:px-10 xl:px-60 px-10 py-20 bg-gray-50 overflow-x-hidden
       lg:space-x-10 xl:space-x-20 md:space-x-2">
 
     <div data-aos="fade-left" class="mb-10">
