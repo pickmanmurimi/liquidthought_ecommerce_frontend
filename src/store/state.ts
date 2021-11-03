@@ -1,9 +1,9 @@
 import {User} from "@/App/Common/Types/User";
-import {Item} from "@/App/Common/Types/Item";
+import {OrderItem} from "@/App/Common/Types/OrderItem";
 
 export const state = {
     user: <User> JSON.parse( localStorage.getItem('user') || '{}' ),
-    cart: <Array<Item>> JSON.parse( localStorage.getItem('cart') || '[]' ),
+    cart: <Array<OrderItem>> JSON.parse( localStorage.getItem('cart') || '[]' ),
     token: <string> JSON.parse( localStorage.getItem('token') || '{}' ),
 }
 

@@ -22,11 +22,11 @@
       <div>
         <!--        bag icon-->
         <div class="relative">
-<!--          replace with full cart when order is places :)-->
-<!--          <i class="ti-shopping-cart-full text-3xl lg:text-5xl"></i>-->
-          <ShoppingBag :size="44"></ShoppingBag>
-          <span class="h-5 w-5 lg:h-8 lg:w-8 block bg-purple-500 rounded-full absolute -top-2 -right-1
+          <router-link :to="{name: 'Cart'}">
+            <ShoppingBag :size="44"></ShoppingBag>
+            <span class="h-5 w-5 lg:h-8 lg:w-8 block bg-purple-500 rounded-full absolute -top-2 -right-1
           flex items-center font-bold text-white justify-center">{{cartItemsCount}}</span>
+          </router-link>
         </div>
       </div>
     </div>

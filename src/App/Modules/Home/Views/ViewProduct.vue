@@ -45,10 +45,14 @@
               </p>
             </div>
 
-            <button class="btn" :disabled="!item.isAvailable" @click="addToCart(item)">
+
+            <router-link class="btn" v-if="itemIsInCart(item)" :to="{name: 'Cart'}">
               <ShoppingCart :size="20" class="inline mr-2"/>
-              <span v-if="itemIsInCart(item)">View in cart</span>
-              <span v-else>Add to cart</span>
+              <span>View in cart</span>
+            </router-link>
+            <button class="btn" v-else :disabled="!item.isAvailable" @click="addToCart(item)">
+              <ShoppingCart :size="20" class="inline mr-2"/>
+              <span>Add to cart</span>
             </button>
 
 

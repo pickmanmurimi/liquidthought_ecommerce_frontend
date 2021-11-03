@@ -2,12 +2,14 @@ import {MutationTypes} from "@/store/mutation-types";
 import {StateType} from "@/store/state";
 import {User} from "@/App/Common/Types/User";
 import {MutationTree} from "vuex";
-import {Item} from "@/App/Common/Types/Item";
+import {OrderItem} from "@/App/Common/Types/OrderItem";
 
 export type Mutations<S = StateType> = {
     [MutationTypes.SET_USER](state: S, payload: User): void
     [MutationTypes.SET_TOKEN](state: S, payload: string): void
-    [MutationTypes.ADD_TO_CART](state: S, payload: Item): void
+    [MutationTypes.ADD_TO_CART](state: S, payload: OrderItem): void
+    [MutationTypes.REMOVE_FROM_CART](state: S, payload: OrderItem): void
+    [MutationTypes.UPDATE_CART](state: S, payload: OrderItem): void
 }
 
 export const mutations: MutationTree<StateType> & Mutations = {
@@ -19,8 +21,16 @@ export const mutations: MutationTree<StateType> & Mutations = {
         state.token = payload;
         localStorage.setItem('token', state.token);
     },
-    [MutationTypes.ADD_TO_CART](state, payload: Item) {
+    [MutationTypes.ADD_TO_CART](state, payload: OrderItem) {
         state.cart.push(payload)
         localStorage.setItem('cart', JSON.stringify(state.cart));
-    }
+    },
+    [MutationTypes.REMOVE_FROM_CART](state, payload: OrderItem) {
+        state.cart = state.cart.filter( item => item.id != payload.id )
+        localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
+    [MutationTypes.UPDATE_CART](state, payload: OrderItem) {
+        state.cart = state.cart.map( item =>  (payload.id === item.id) ? payload : item )
+        localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
 }

@@ -2,6 +2,7 @@
  * Item
  */
 export type Item = {
+    id: number,
     uuid: string,
     name: string,
     unit_price: number,

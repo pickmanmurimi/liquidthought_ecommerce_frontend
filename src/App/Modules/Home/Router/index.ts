@@ -18,5 +18,15 @@ export default [
             onmenu: false,
             title: 'ViewProduct',
         },
+    },
+    {
+        path: '/cart',
+        component: () => import('../Views/Cart.vue'),
+        name: 'Cart',
+        meta: {
+            requiresAuth: false,
+            onmenu: false,
+            title: 'Cart',
+        },
     }
 ];

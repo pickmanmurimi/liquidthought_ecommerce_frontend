@@ -20,6 +20,8 @@ module.exports = {
       translate: ['group-hover'],
       display: ['group-hover'],
       opacity: ['disabled'],
+      backgroundColor: ['active'],
+      textColor: ['active'],
     },
   },
   plugins: [],
