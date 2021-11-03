@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import {useRoute} from "vue-router";
+
+const route = useRoute();
 </script>
 
 <template>
-  <router-view v-slot="{ Component }">
+  <router-view :key="route.path" v-slot="{ Component }">
     <transition name="scale" mode="out-in">
       <component :is="Component"/>
     </transition>
