@@ -45,9 +45,10 @@
               </p>
             </div>
 
-            <button class="btn">
+            <button class="btn" :disabled="!item.isAvailable" @click="addToCart(item)">
               <ShoppingCart :size="20" class="inline mr-2"/>
-              Add to cart
+              <span v-if="itemIsInCart(item)">View in cart</span>
+              <span v-else>Add to cart</span>
             </button>
 
 
@@ -114,7 +115,7 @@ const route = useRoute();
 /**
  * add item to cart
  */
-const {addToCart} = useCart();
+const {addToCart,itemIsInCart} = useCart();
 
 /**
  * get item

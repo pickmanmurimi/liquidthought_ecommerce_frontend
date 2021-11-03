@@ -25,7 +25,7 @@ body, html {
 }
 
 .btn {
-    @apply bg-purple-500 px-3 py-2 rounded text-white hover:shadow-xl;
+    @apply bg-purple-500 px-3 py-2 rounded text-white hover:shadow-xl disabled:opacity-50;
 }
 
 .btn-lg {

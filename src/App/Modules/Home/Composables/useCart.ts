@@ -14,7 +14,16 @@ export function useCart() {
         store.commit(MutationTypes.ADD_TO_CART, item);
     }
 
+    /**
+     * checks if item is already in cart
+     * @param item
+     */
+    const itemIsInCart = ( item: Item ): boolean => {
+        return store.getters.cart.find( cartItem => cartItem.uuid == item.uuid) != undefined;
+    }
+
     return {
-        addToCart
+        addToCart,
+        itemIsInCart
     }
 }

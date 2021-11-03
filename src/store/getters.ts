@@ -1,11 +1,13 @@
 import {StateType} from "@/store/state";
 import {User} from "@/App/Common/Types/User";
 import {GetterTree} from "vuex";
+import {Item} from "@/App/Common/Types/Item";
 
 export type Getters = {
     authenticatedUser(state: StateType) : User,
     token(state: StateType) : string,
-    isAuthenticated(state: StateType) : boolean
+    isAuthenticated(state: StateType) : boolean,
+    cart(state: StateType) : Item[],
 }
 
 export const getters:GetterTree<StateType, StateType> & Getters = {
@@ -13,9 +15,12 @@ export const getters:GetterTree<StateType, StateType> & Getters = {
         return state.user;
     },
     token(state: StateType): string {
-        return state.token
+        return state.token;
     },
     isAuthenticated(state: StateType): boolean {
-        return !!state.token
+        return !!state.token;
+    },
+    cart(state:StateType): Item[] {
+        return state.cart;
     }
 }

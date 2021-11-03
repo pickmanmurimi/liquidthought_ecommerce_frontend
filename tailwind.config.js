@@ -19,7 +19,7 @@ module.exports = {
       rotate: ['group-hover'],
       translate: ['group-hover'],
       display: ['group-hover'],
-      textColor: []
+      opacity: ['disabled'],
     },
   },
   plugins: [],
