@@ -1,6 +1,6 @@
 # Liquid Thought Vue 3 + Typescript + Vite + Tailwind
 
-![Liquid store collage](https://github.com/pickmanmurimi/liquidthought_ecommerce_frontend/blob/main/public/productdetails.png?raw=true)
+![Liquid Details Page](https://github.com/pickmanmurimi/liquidthought_ecommerce_frontend/blob/main/public/productdetails.png?raw=true)
 
 
 ## Requirements
@@ -53,3 +53,45 @@ Pretty exciting, huh?
 A server will spin up, just follow the link provided, and you should be greeted by the landing page,
 Look around to see what was done with the app.
 ![Liquid store collage](https://github.com/pickmanmurimi/liquidthought_ecommerce_frontend/blob/main/public/liquidshopcollage.png?raw=true)
+
+#Code Structure
+
+I will normally avoid the default vue cli structure, and employ a modular structure.
+
+It basically moves all the functional parts of the app into the `App/` folder.
+
+We then add a `/Common` folder to hold all the parts that are reusable across the app, eg. layouts.
+
+`/Modules` will then hold all the modules we have in out app, in our case, we have
+`Authentication`, `Checkout` and `Home`.
+All these are basically quote "stand alone vue modules", Ideally they are loosely coupled and try to do their functions
+independently.
+
+The structure takes the form;
+
+    /src
+    ....App/
+    ......../Common
+                /Components
+                /Composables
+                /Types
+                /Utils
+    ......../Modules
+    ............/Authentication
+                    /Components
+                    /Composables
+                    /Types
+                    /Router
+                    /Views
+    ............/Checkout
+    ............/Home
+    ............router.ts
+    ....assests/
+    ....Router
+    ....store/
+    ....tailwind/
+    ....App.vue
+
+I have a presentation that I prepared for a tech meetup in Nairobi that I can share.
+It explains how the modular structure works, what it seeks to eliminate and improve on.
+It has been shared on email. Though built for vue 2, the same concepts carry forward to vue 3.
