@@ -1,7 +1,7 @@
 <template>
   <!--          items-->
-  <div class="rounded-xl bg-white">
-    <div class="lg:grid grid-cols-7 lg:space-x-10 p-2 md:p-8 lg:p-0">
+  <div class="rounded-xl bg-white mb-10">
+    <div class="lg:grid grid-cols-7 lg:gap-x-10 p-2 md:p-8 lg:p-0">
       <div class="flex items-center justify-center p-2 col-span-2">
         <img :src="item.item.image_url"
              alt="lebron1"
@@ -33,7 +33,7 @@
       <!--              pricing-->
       <div class="col-span-2 lg:border-l border-gray-200 text-center lg:py-8 lg:px-2 flex flex-col justify-between">
         <div>
-          <p class="text-purple-500 font-bold"> {{ item.item.currency }} {{ item.item.unit_price }}</p>
+          <p class="text-purple-500 font-bold"> <span class="text-gray-500">{{ item.item.currency }}</span> {{ item.item.unit_price }}</p>
           <small class=" "> Total {{ item.item.currency }} {{ item.item.unit_price * item.quantity }}</small>
         </div>
 

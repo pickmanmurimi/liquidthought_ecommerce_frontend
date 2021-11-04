@@ -5,17 +5,28 @@
       <h1 class="text-4xl font-bold mb-5">Cart</h1>
       <!-- images-->
       <div class="lg:grid grid-cols-3 md:gap-5 xxl:gap-10 text-gray-600">
-        <div class="col-span-2 flex space-y-10 flex-col">
+        <div class="col-span-2">
 
-          <!--          items-->
-          <template v-for="item in items" :key="item.id">
-            <CartItem :item="item" data-aos="fade-up"></CartItem>
-          </template>
+          <div v-if="items.length < 1">
+            <None text="No items have been added to cart!"></None>
+
+            <div class="text-center mt-10">
+              <router-link class="btn" :to="{name: 'Home'}"> Checkout Some products 😀.</router-link>
+            </div>
+          </div>
+
+          <div v-else>
+            <!--          items-->
+            <template v-for="item in items" :key="item.id">
+              <CartItem :item="item" data-aos="fade-up"></CartItem>
+            </template>
+          </div>
+
 
         </div>
 
         <!--        summary-->
-        <div class="w-full mt-10 lg:mt-0">
+        <div v-if="items.length" class="w-full mt-10 lg:mt-0">
           <div class="w-full p-8 rounded-xl bg-white">
             <h1 class="pb-5 border-gray-200 border-b">Price Details</h1>
             <div class="grid gap-5 grid-cols-2 pt-5 pb-5 border-gray-200 border-b mb-5">
@@ -62,6 +73,8 @@ import {computed} from "vue";
 import {useStore} from "@/store/store";
 import CartItem from "@Modules/Home/Componets/CartItem.vue";
 import {OrderItem} from "@/App/Common/Types/OrderItem";
+import None from "@/App/Common/Componets/Placeholders/None.vue";
+import RelatedItemsSection from "@Modules/Home/Componets/RelatedItemsSection.vue";
 
 const store = useStore();
 

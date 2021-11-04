@@ -12,6 +12,7 @@ export type Mutations<S = StateType> = {
     [MutationTypes.UPDATE_CART](state: S, payload: OrderItem): void
     [MutationTypes.UNSET_USER](state: S): void
     [MutationTypes.UNSET_TOKEN](state: S): void
+    [MutationTypes.CLEAR_CART](state: S): void
 }
 
 export const mutations: MutationTree<StateType> & Mutations = {
@@ -42,5 +43,9 @@ export const mutations: MutationTree<StateType> & Mutations = {
     [MutationTypes.UNSET_TOKEN](state) {
         state.token = '';
         localStorage.removeItem('token');
+    },
+    [MutationTypes.CLEAR_CART](state) {
+        state.cart = [];
+        localStorage.removeItem('cart');
     },
 }

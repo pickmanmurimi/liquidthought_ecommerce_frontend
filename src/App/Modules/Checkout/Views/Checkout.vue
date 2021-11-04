@@ -9,16 +9,16 @@
           <!----------------------------------------------------------------------------------------------------------->
           <!--          Add new address-->
           <!----------------------------------------------------------------------------------------------------------->
-          <AddAddress class="w-full h-full"></AddAddress>
+          <AddAddress @addressAdded="triggerGetDeliveryDetails" class="w-full h-full"></AddAddress>
 
           <!----------------------------------------------------------------------------------------------------------->
           <!--          summary-->
           <!----------------------------------------------------------------------------------------------------------->
-          <div class="h-full">
+          <div class="h-full lg:w-2/5">
             <!--        summary-->
             <div class="mt-10 lg:mt-0">
               <!--              delivery details-->
-              <DeliveryDetails></DeliveryDetails>
+              <DeliveryDetails :trigger="trigger"></DeliveryDetails>
             </div>
 
             <div class="w-full mt-10">
@@ -37,7 +37,16 @@
 import MainLayout from "@/App/Common/Componets/Layout/MainLayout.vue";
 import AddAddress from "@Modules/Checkout/Components/AddAddress.vue";
 import DeliveryDetails from "@Modules/Checkout/Components/DeliveryDetails.vue";
-import PriceDetails from "@Modules/Checkout/Components/PriceDetails.vue";</script>
+import PriceDetails from "@Modules/Checkout/Components/PriceDetails.vue";
+import {ref} from "vue";
+
+const trigger = ref<Number>(0)
+
+const triggerGetDeliveryDetails = (getTrigger:number) => {
+  trigger.value = getTrigger
+}
+
+</script>
 <style scoped>
 
 </style>

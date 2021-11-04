@@ -16,12 +16,22 @@
       </div>
     </div>
     <div class="col-span-2">
-      <router-link :to="{ name: 'Checkout'}" class="btn w-full block text-center">Place order</router-link>
+      <button @click="checkout" class="btn w-full block text-center">Checkout</button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import swal from "sweetalert";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
+
+const checkout = () => {
+  swal("Your order has been placed!",'','success').then(() => {
+    router.push({ name: 'PlaceOrder'})
+  })
+}
 
 </script>
 

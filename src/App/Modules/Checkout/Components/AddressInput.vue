@@ -4,6 +4,8 @@
     <BaseInput v-model:model-value="address" autocomplete="off"
                icon="ti-layers"
                name="address"
+               rules="required"
+               v-model:form-error="formError"
                placeholder="Example: 777 Brockton Avenue, Abington MA 2351"
                text="Address"
                type="text"
@@ -56,8 +58,12 @@ import HollowDotsLoader from "@/App/Common/Componets/Loaders/HollowDotsLoader.vu
 const props = defineProps({
   modelValue: {
     type: String,
-  }
+  },
+  formError: {}
 })
+
+const emit = defineEmits(['update:modelValue','addressSelected'])
+
 
 const address = ref<string>('')
 const showAutocomplete = ref<boolean>(false)
@@ -71,12 +77,13 @@ const {getSuggestion, places, status} = usePlacesApi();
  * select address
  * @param selectedAddress
  */
-const setAddress = (selectedAddress: { description: string; }): void => {
+const setAddress = (selectedAddress: { description: string; terms: Array<{ value: string }> }): void => {
   address.value = selectedAddress.description
+  const country = selectedAddress.terms[ selectedAddress.terms.length -1 ].value
+  emit('addressSelected', country)
   showAutocomplete.value = false
 }
 
-const emit = defineEmits(['update:modelValue'])
 
 watch(address, (value) => {
   emit('update:modelValue', value)

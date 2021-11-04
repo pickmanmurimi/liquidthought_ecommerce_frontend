@@ -7,5 +7,14 @@ export default [
             requiresAuth: true,
             title: 'Cart',
         },
+    },
+    {
+        path: '/place-order',
+        component: () => import('../Views/PlaceOrder.vue'),
+        name: 'PlaceOrder',
+        meta: {
+            requiresAuth: true,
+            title: 'Cart',
+        },
     }
 ];
