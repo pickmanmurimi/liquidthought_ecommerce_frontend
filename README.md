@@ -1,1 +1,1 @@
-# Liquid Thought Vue 3 + Typescript + Vite
+# Liquid Thought Vue 3 + Typescript + Vite + Tailwind

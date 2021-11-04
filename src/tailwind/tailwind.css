@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, * {
+    @apply font-Montserrat;
+}
+
+body, html {
+    /*height: 100%;*/
+}
+
+.form-control {
+    @apply shadow rounded py-2 px-4 w-full text-sm;
+    @apply  focus:outline-none focus:ring-1 focus:ring-purple-600 focus:border-transparent;
+}
+
+.form-error {
+    @apply ring-1 ring-red-300 !important;
+}
+
+.logo-box {
+    @apply font-bold md:text-8xl text-white font-sans rounded-xl md:rounded-3xl text-center w-32 h-28 text-3xl;
+    @apply bg-gradient-to-r from-purple-500 to-pink-500;
+}
+
+.btn {
+    @apply bg-purple-500 px-3 py-2 rounded text-white hover:shadow hover:bg-purple-600 disabled:opacity-50 active:bg-purple-700;
+}
+
+.btn-lg {
+    @apply bg-purple-500 px-4 py-4 rounded-xl text-white hover:shadow-xl hover:bg-purple-600 active:bg-purple-700;
+}
+
+.btn-badge {
+    @apply bg-purple-400 text-white active:bg-purple-700 flex h-5 w-5 justify-center items-center;
+    @apply text-sm rounded active:bg-purple-700 shadow hover:shadow;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 px-3 py-2 rounded text-gray-500 hover:shadow disabled:opacity-50 active:bg-gray-600 active:text-gray-200;
+}
+
+.animate-all {
+    @apply transition-all duration-500 ease-in-out;
+}
+
+.places-autocomplete {
+    @apply hover:bg-white text-sm whitespace-nowrap overflow-x-hidden cursor-pointer p-1 px-4 hover:text-purple-500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
