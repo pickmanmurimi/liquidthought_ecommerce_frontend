@@ -95,5 +95,3 @@ The structure takes the form;
 I have a presentation that I prepared for a tech meetup in Nairobi that I can share.
 It explains how the modular structure works, what it seeks to eliminate and improve on.
 It has been shared on email. Though built for vue 2, the same concepts carry forward to vue 3.
-
-#
