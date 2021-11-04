@@ -1,7 +1,8 @@
-# Liquid Thought Vue 3 + Typescript + Vite + Tailwind
+# Liquid Shop Vue 3 + Typescript + Vite + Tailwind
 
 ![Liquid Details Page](https://github.com/pickmanmurimi/liquidthought_ecommerce_frontend/blob/main/public/productdetails.png?raw=true)
 
+### demo  👉  https://liquidshop.irup.io/
 
 ## Requirements
 
