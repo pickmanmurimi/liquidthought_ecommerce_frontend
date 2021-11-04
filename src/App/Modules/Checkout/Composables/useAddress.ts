@@ -3,6 +3,7 @@ import {Address} from "@Modules/Checkout/Types/Address";
 import useFetch from "@/App/Common/Composables/useFetch";
 import swal from "sweetalert";
 import {stat} from "fs";
+import {FormError} from "@/App/Common/Types/FormError";
 
 /**
  * use addresses
@@ -17,7 +18,7 @@ export function useAddress() {
         address: <Address>{},
         addresses: <Address[]>[],
         status: <number>0,
-        formError: {}
+        formError: <FormError>{}
     })
 
     /**
@@ -33,7 +34,7 @@ export function useAddress() {
             data: address,
         });
         addressData.loading = false;
-        addressData.formError = formError;
+        addressData.formError = formError.value;
         addressData.status = status.value;
         if (status.value === 201) {
             await swal('Address added', '', 'success')
