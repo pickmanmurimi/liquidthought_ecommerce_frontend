@@ -3,7 +3,7 @@ import {Loader} from '@googlemaps/js-api-loader';
 import swal from "sweetalert";
 
 const loader = new Loader({
-    apiKey: "AIzaSyD4OkjZd7f_4fc4nA_J37PFIBa3M769Wwc",
+    apiKey: import.meta.env.VITE_GOOGLE_PLACES_API_KEY,
     libraries: ["places"]
 });
 

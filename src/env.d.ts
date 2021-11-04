@@ -8,7 +8,8 @@ declare module '*.vue' {
 }
 
 interface ImportMetaEnv extends Readonly<Record<string, string>> {
-  readonly VITE_API_BASE: string
+  readonly VITE_API_BASE: string,
+  readonly VITE_GOOGLE_PLACES_API_KEY: string,
   // more env variables...
 }
 
