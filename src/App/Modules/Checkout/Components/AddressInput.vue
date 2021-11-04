@@ -5,7 +5,7 @@
                icon="ti-layers"
                name="address"
                rules="required"
-               v-model:form-error="formError"
+               v-model:form-error="error"
                placeholder="Example: 777 Brockton Avenue, Abington MA 2351"
                text="Address"
                type="text"
@@ -52,20 +52,23 @@
 <script lang="ts" setup>
 import BaseInput from "@/App/Common/Componets/Forms/BaseInput.vue";
 import {usePlacesApi} from "@Modules/Checkout/Composables/usePlacesApi";
-import {ref, watch} from "vue";
+import {PropType, ref, watch} from "vue";
 import HollowDotsLoader from "@/App/Common/Componets/Loaders/HollowDotsLoader.vue";
+import {FormError} from "@/App/Common/Types/FormError";
 
 const props = defineProps({
   modelValue: {
     type: String,
   },
   formError: {
-    type: Object
+    type: Object as PropType<FormError>,
+    default: () => {}
   }
 })
 
-const emit = defineEmits(['update:modelValue','addressSelected'])
+const emit = defineEmits(['update:modelValue','addressSelected','update:formError'])
 
+const error = ref({})
 
 const address = ref<string>('')
 const showAutocomplete = ref<boolean>(false)
@@ -93,6 +96,14 @@ watch(address, (value) => {
 
 watch(() => props.modelValue, (value) => {
   address.value = value ? value : ''
+})
+
+watch(() => props.formError, (value) => {
+  error.value = value
+})
+
+watch(() => error, (value) => {
+  emit('update:formError', value)
 })
 </script>
 

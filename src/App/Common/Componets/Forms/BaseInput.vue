@@ -77,7 +77,8 @@ const props = defineProps({
    * Holds the errors, from the backed and emits the $v.invalid value
    */
   formError: {
-    type: Object
+    type: Object,
+    default: () => {}
   },
 });
 
@@ -150,7 +151,7 @@ const anyInvalid = (errors:any) => {
  * watch vueValidate
  */
 watch(v$, (value) => {
-  const formError:any = props.formError;
+  const formError = props.formError;
   // the form error object must be passed
   if (formError !== undefined) {
     // create the object if does not exist

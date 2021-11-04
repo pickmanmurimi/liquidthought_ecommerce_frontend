@@ -64,7 +64,7 @@ export function useAuthentication() {
         const { status } = await useFetch(`authentication/logout`)
         authenticationData.loading = false;
         authenticationData.status = status.value
-        if (status.value === 200 ) {
+        if (status.value === 200 || status.value === 401 ) {
             store.commit(MutationTypes.UNSET_TOKEN,undefined)
             store.commit(MutationTypes.UNSET_USER, undefined)
             await router.push({name: 'Login'})

@@ -47,7 +47,7 @@
                  rules="required"
                  text="Country" type="text"/>
 
-      <button class="btn" @click.prevent="createAddress(address)">Save address</button>
+      <button class="btn" :disabled="formError.$anyInvalid" @click.prevent="createAddress(address)">Save address</button>
     </form>
 
   </div>
@@ -76,6 +76,7 @@ watch( status, (value) => {
   if (value === 201 )
     emit('addressAdded', Math.random() * 1000 )
 } )
+
 </script>
 
 <style scoped>
