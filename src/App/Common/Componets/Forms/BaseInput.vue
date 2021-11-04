@@ -7,7 +7,7 @@
              :type="props.type"
              v-model="content"
              class="form-control text-gray-500"
-             @blur="emit('blur');v$?.content.$touch(content)"
+             @blur="v$?.content.$touch"
              @focus="emit('focus')"
              @input="handleInput">
       <i :class="icon" class="absolute right-2"></i>
@@ -76,7 +76,9 @@ const props = defineProps({
   /**
    * Holds the errors, from the backed and emits the $v.invalid value
    */
-  formError: {},
+  formError: {
+    type: Object
+  },
 });
 
 const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'input', 'update:formError'])
@@ -85,7 +87,7 @@ const content = ref()
 /**
  * handleInput
  */
-const handleInput = (e: { target: { value: any; }; }) => {
+const handleInput = (e: any ) => {
   emit('update:modelValue', e.target?.value);
   emit('input', e.target?.value);
 };

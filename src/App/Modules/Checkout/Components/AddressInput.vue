@@ -59,7 +59,9 @@ const props = defineProps({
   modelValue: {
     type: String,
   },
-  formError: {}
+  formError: {
+    type: Object
+  }
 })
 
 const emit = defineEmits(['update:modelValue','addressSelected'])

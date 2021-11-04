@@ -59,9 +59,7 @@ import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
 import None from "@/App/Common/Componets/Placeholders/None.vue";
 
 const props = defineProps({
-  trigger: {
-    type: Number
-  }
+  trigger: {}
 });
 
 const {loading, getAddresses, addresses} = useAddress();
