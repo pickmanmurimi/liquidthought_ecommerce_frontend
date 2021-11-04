@@ -44,3 +44,9 @@ body, html {
 .animate-all {
     @apply transition-all duration-500 ease-in-out;
 }
+
+.places-autocomplete {
+    @apply hover:bg-white text-sm whitespace-nowrap overflow-x-hidden cursor-pointer p-1 px-4 hover:text-purple-500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

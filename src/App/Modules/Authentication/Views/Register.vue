@@ -3,35 +3,56 @@
     <!--    login card-->
     <div class=" rounded-3xl flex shadow-2xl border overflow-hidden">
       <div class=" hidden lg:block max-w-lg bg-gray-100  items-center justify-center flex ">
-        <img class="h-full w-full object-contain" src="@assets/products/lebron7.png" alt="auth bg">
+        <img alt="auth bg" class="h-full w-full object-contain" src="@assets/products/lebron7.png">
       </div>
-      <div class="p-12 max-w-xl bg-white opacity-95">
+      <div class="p-12 max-w-xl bg-white opacity-95 relative">
+        <!--    loader-->
+        <div v-if="loading" class="absolute z-30 flex justify-center w-full h-full items-center">
+          <OrbitLoader></OrbitLoader>
+        </div>
+
         <h1 class="text-3xl">Start shopping on Liquid 🚀</h1>
         <p class="text-gray-400 mt-2 font-light">Fill the form below to create your account.</p>
         <!--        login form-->
         <form class="mt-5 border-t pt-5">
-
           <!--          first_name-->
-          <BaseInput name="first_name" text="First Name" type="text" icon="ti-user" placeholder="John" />
+          <BaseInput v-model:form-error="formError" v-model:model-value="registrationData.first_name" icon="ti-user"
+                     name="first_name"
+                     placeholder="John" rules="required"
+                     text="First Name" type="text"/>
 
           <!--          last_name-->
-          <BaseInput name="last_name" text="Last Name" type="text" icon="ti-user" placeholder="Doe" />
+          <BaseInput v-model:form-error="formError" v-model:model-value="registrationData.last_name" icon="ti-user"
+                     name="last_name"
+                     placeholder="Doe" rules="required"
+                     text="Last Name" type="text"/>
 
           <!--          email-->
-          <BaseInput name="email" text="Email" type="email" icon="ti-email" placeholder="john@example.com" />
+          <BaseInput v-model:form-error="formError" v-model:model-value="registrationData.email" icon="ti-email"
+                     name="email"
+                     placeholder="john@example.com" rules="required|email" text="Email"
+                     type="email"/>
 
           <!--          password-->
-          <BaseInput name="password" text="Password" type="password" icon="ti-lock" placeholder="secret" />
+          <BaseInput v-model:form-error="formError" v-model:model-value="registrationData.password"
+                     icon="ti-lock" name="password"
+                     placeholder="secret" rules="required|minLength:6"
+                     text="Password" type="password"/>
 
           <!--          password_confirmation-->
-          <BaseInput name="password_confirmation" text="Password" type="password" icon="ti-lock" placeholder="secret" />
+          <BaseInput v-model:form-error="formError" v-model:model-value="registrationData.password_confirmation"
+                     icon="ti-lock"
+                     name="password_confirmation"
+                     placeholder="secret" rules="required|minLength:6" text="Password" type="password"/>
 
           <!--        signup button-->
-          <button class="btn w-full">Sign up</button>
+          <button :disabled="formError.$anyInvalid" class="btn w-full" @click.prevent="register(registrationData)">
+            Sign up
+          </button>
 
           <div class="mt-5">
             <small>Already signed up?
-              <router-link class="text-purple-500" :to="{ name: 'Login'}">Just login here.</router-link>
+              <router-link :to="{ name: 'Login'}" class="text-purple-500">Just login here.</router-link>
             </small>
           </div>
         </form>
@@ -40,10 +61,25 @@
   </AuthLayout>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import AuthLayout from "../Componets/AuthLayout.vue";
 import BaseInput from "../../../Common/Componets/Forms/BaseInput.vue";
-import Logo from "../../../Common/Componets/Logo/Logo.vue";
+import {useAuthentication} from "@Modules/Authentication/Composables/useAuthentication";
+import {ref} from "vue";
+import {AuthenticationUser} from "@Modules/Authentication/Types/AuthenticationUser";
+import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
+
+const registrationData = ref<AuthenticationUser>({
+  email: "", first_name: "", last_name: "", password: "", password_confirmation: ""
+})
+
+/**
+ * login
+ * @return void
+ */
+const {register, loading, formError} = useAuthentication();
+
+
 </script>
 
 <style scoped>

@@ -5,7 +5,6 @@ export default [
         name: 'Home',
         meta: {
             requiresAuth: false,
-            onmenu: false,
             title: 'Home',
         },
     },
@@ -15,7 +14,6 @@ export default [
         name: 'ViewProduct',
         meta: {
             requiresAuth: false,
-            onmenu: false,
             title: 'ViewProduct',
         },
     },
@@ -25,8 +23,7 @@ export default [
         name: 'Cart',
         meta: {
             requiresAuth: false,
-            onmenu: false,
             title: 'Cart',
         },
-    }
+    },
 ];

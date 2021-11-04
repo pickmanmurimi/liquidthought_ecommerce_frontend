@@ -7,12 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.8",
     "@types/aos": "^3.0.4",
     "@types/node": "^16.11.6",
+    "@vuelidate/core": "^2.0.0-alpha.32",
+    "@vuelidate/validators": "^2.0.0-alpha.25",
     "aos": "^2.3.4",
     "axios": "^0.24.0",
     "lucide-vue-next": "^0.16.14",
-    "sweetalert2": "^11.1.9",
+    "sweetalert": "^2.1.2",
     "vue": "^3.2.16",
     "vue-router": "4",
     "vuex": "^4.0.2"

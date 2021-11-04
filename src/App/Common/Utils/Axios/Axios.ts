@@ -1,5 +1,5 @@
 import Axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
-import swal from 'sweetalert2';
+import swal from 'sweetalert';
 import {useStore} from "@/store/store";
 const store = useStore();
 
@@ -17,7 +17,7 @@ $axios.interceptors.request.use(
   },
   (error:AxiosError) => {
     //
-      swal.fire('Whoops! could not send the request :(', 'Kindly check your connection', 'error')
+      swal('Whoops! could not send the request :(', 'Kindly check your connection', 'error')
           .then();
     return Promise.reject(error);
   },
@@ -30,7 +30,7 @@ $axios.interceptors.response.use(
   (error:AxiosError) => {
     // Do something with response error
     if (!error.response) {
-      swal.fire('Network Error :(', 'Kindly check your connection', 'error')
+      swal('Network Error :(', 'Could not reach the server.', 'error')
         .then();
       return Promise.reject(error);
     }
@@ -40,11 +40,11 @@ $axios.interceptors.response.use(
         // TODO: Logout
         return Promise.reject(error);
       case 403:
-        swal.fire(error.response.data.message, '', 'error')
+        swal(error.response.data.message, '', 'error')
           .then();
         return Promise.reject(error);
       case 500:
-        swal.fire('Server Error :(', 'Kindly contact your web master', 'error')
+        swal('Server Error :(', 'Kindly contact your web master', 'error')
           .then();
         return Promise.reject(error);
       case 422:
@@ -53,7 +53,7 @@ $axios.interceptors.response.use(
       case 400:
         break;
       default:
-        swal.fire('Error :(', 'Kindly contact your web master', 'error')
+        swal('Error :(', 'Kindly contact your web master', 'error')
           .then();
     }
     return Promise.reject(error);

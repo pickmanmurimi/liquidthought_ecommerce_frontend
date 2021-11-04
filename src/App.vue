@@ -5,9 +5,9 @@ const route = useRoute();
 </script>
 
 <template>
-  <router-view :key="route.path" v-slot="{ Component }">
+  <router-view v-slot="{ Component }" :key="route.path" >
     <transition name="scale" mode="out-in">
-      <component :is="Component"/>
+      <component data-aos="zoom" :is="Component"/>
     </transition>
   </router-view>
 </template>

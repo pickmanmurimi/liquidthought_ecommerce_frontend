@@ -5,7 +5,7 @@ export default [
         name: 'Login',
         meta: {
             requiresAuth: false,
-            onmenu: false,
+            strictNoAuth: true,
             title: 'Home',
         },
     },
@@ -15,8 +15,18 @@ export default [
         name: 'Register',
         meta: {
             requiresAuth: false,
-            onmenu: false,
+            strictNoAuth: true,
             title: 'Register',
+        },
+    },
+    {
+        path: '/confirm-email/:token/:uuid',
+        component: () => import('../Views/ConfirmEmail.vue'),
+        name: 'ConfirmEmail',
+        meta: {
+            requiresAuth: false,
+            strictNoAuth: true,
+            title: 'ConfirmEmail',
         },
     }
 ];

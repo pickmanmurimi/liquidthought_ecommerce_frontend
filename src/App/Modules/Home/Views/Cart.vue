@@ -41,7 +41,10 @@
                 <p>{{ total }}</p>
               </div>
               <div class="col-span-2">
-                <button class="btn w-full">Place order</button>
+                <router-link v-if="store.getters.isAuthenticated" :to="{ name: 'Checkout'}"
+                             class="btn w-full block text-center">Place order</router-link>
+                <router-link v-else :to="{ name: 'Login', query: { checkout: 'Checkout'}}"
+                             class="btn w-full block text-center">Place order</router-link>
               </div>
             </div>
 

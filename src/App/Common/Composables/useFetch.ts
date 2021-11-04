@@ -15,7 +15,7 @@ import {AxiosError, AxiosInstance, AxiosResponse} from "axios";
  */
 export default async function (url:string, config:object = {}, $axiosInstance:AxiosInstance = $axios) {
   const response = shallowRef <AxiosResponse>();
-  const status = ref<number>();
+  const status = ref<number>(0);
   // data object, lower level object that is a child of the response object
   const data = shallowRef<any>();
   // higher level error object
@@ -44,7 +44,7 @@ export default async function (url:string, config:object = {}, $axiosInstance:Ax
   } catch (e: any) {
     error.value = e;
     responseError.value = e.response?.data;
-    formError.value = e.response?.data?.errors;
+    formError.value = e.response?.data?.errors || {$anyInvalid:false};
     status.value = e.response?.status;
   } finally {
     isLoading.value = false;
