@@ -6,7 +6,7 @@
         <small>Total Price</small>
       </div>
       <div class="text-right">
-        <small>Lk</small>
+        <small>{{ total }}</small>
       </div>
       <div>
         <small>Delivery Charges</small>
@@ -16,7 +16,9 @@
       </div>
     </div>
     <div class="col-span-2">
-      <button @click="checkout" class="btn w-full block text-center">Checkout</button>
+      <button class="btn w-full block text-center"
+              @click="checkout">Checkout
+      </button>
     </div>
   </div>
 </template>
@@ -24,12 +26,27 @@
 <script lang="ts" setup>
 import swal from "sweetalert";
 import {useRouter} from "vue-router";
+import {computed} from "vue";
+import {OrderItem} from "@/App/Common/Types/OrderItem";
+import {useStore} from "@/store/store";
+
+const store = useStore();
+
+/**
+ * @var Item[] items
+ */
+const items = computed<OrderItem[]>(() => {
+  return store.getters.cart
+})
+
+const total = computed<number>(() => items.value
+    .reduce((sum, currentItem) => sum + currentItem.quantity * currentItem.item.unit_price, 0))
 
 const router = useRouter();
 
 const checkout = () => {
-  swal("Your order has been placed!",'','success').then(() => {
-    router.push({ name: 'PlaceOrder'})
+  swal("Your order has been placed!", '', 'success').then(() => {
+    router.push({name: 'PlaceOrder'})
   })
 }
 

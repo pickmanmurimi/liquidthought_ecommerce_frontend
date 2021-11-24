@@ -1,4 +1,5 @@
 export type Address = {
+    uuid?: string,
     full_name?: string,
     address?: string,
     postal_code?: number,
