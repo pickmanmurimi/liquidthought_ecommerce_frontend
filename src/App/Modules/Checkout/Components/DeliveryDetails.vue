@@ -56,14 +56,14 @@
     <div v-if="showAddresses" class="fixed w-full h-screen top-0 left-0 z-50 flex justify-center items-center">
       <div class="w-2/6 bg-white shadow-2xl border rounded-2xl p-5 pb-0 overflow-hidden">
         <div class="mb-2 flex justify-between">
-          <h2 class="font-bold">Select Address</h2>
+          <h2 class="text-xl">Select Address</h2>
           <button @click="showAddresses = false"><i class="ti ti-close text-purple-500"></i></button>
         </div>
         <ul>
           <li v-for="address in addresses" :key="address.uuid"
-              class="w-full p-3 mb-5 border rounded-xl flex justify-between">
+              class="w-full p-3 mb-5 border rounded-xl flex justify-between hover:shadow">
             <div>
-              <p>{{ address.full_name }}</p>
+              <p>{{ address.full_name }}, {{ address.postal_code }}</p>
               <small> <i class="ti ti-location-pin text-purple-500"></i> {{ address.address }}</small>
             </div>
             <button class="text-sm text-purple-500">Select address</button>
@@ -82,6 +82,9 @@ import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
 import None from "@/App/Common/Componets/Placeholders/None.vue";
 
 const props = defineProps({
+  /**
+   * trigger event to get new addresses
+   */
   trigger: {}
 });
 
@@ -92,6 +95,7 @@ const showAddresses = ref<boolean>(false)
  */
 const {loading, getAddresses, addresses} = useAddress();
 
+// get addresses
 onMounted(() => {
   getAddresses()
 })
