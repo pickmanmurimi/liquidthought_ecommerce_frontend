@@ -5,5 +5,5 @@ export type OrderItem = {
 
 export type Order = {
     items: Array<OrderItem>,
-    address_uuid: string
+    address_uuid?: string
 }

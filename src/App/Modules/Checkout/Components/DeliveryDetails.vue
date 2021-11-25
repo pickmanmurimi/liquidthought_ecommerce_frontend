@@ -18,43 +18,43 @@
         <small>Full name</small>
       </div>
       <div class="text-right">
-        <small>{{ addresses[0].full_name }}</small>
+        <small>{{defaultAddress.full_name }}</small>
       </div>
       <div>
         <small>Address</small>
       </div>
       <div class="text-right">
-        <small>{{ addresses[0].address }}</small>
+        <small>{{defaultAddress.address }}</small>
       </div>
       <div>
         <small>Postal code</small>
       </div>
       <div class="text-right">
-        <small>{{ addresses[0].postal_code }}</small>
+        <small>{{defaultAddress.postal_code }}</small>
       </div>
       <div>
         <small>City</small>
       </div>
       <div class="text-right">
-        <small>{{ addresses[0].city }}</small>
+        <small>{{defaultAddress.city }}</small>
       </div>
       <div>
         <small>State</small>
       </div>
       <div class="text-right">
-        <small>{{ addresses[0].state }}</small>
+        <small>{{defaultAddress.state }}</small>
       </div>
       <div>
         <small>Country</small>
       </div>
       <div class="text-right">
-        <small>{{ addresses[0].country }}</small>
+        <small>{{defaultAddress.country }}</small>
       </div>
     </div>
 
     <!--    modal-->
-    <div v-if="showAddresses" class="fixed w-full h-screen top-0 left-0 z-50 flex justify-center items-center">
-      <div class="w-2/6 bg-white shadow-2xl border rounded-2xl p-5 pb-0 overflow-hidden">
+    <div v-if="showAddresses" class="fixed w-full h-full inset-0 z-50 flex justify-center items-center">
+      <div class="lg:w-2/6 bg-white shadow-2xl border rounded-2xl p-5 pb-0 overflow-hidden mx-2">
         <div class="mb-2 flex justify-between">
           <h2 class="text-xl">Select Address</h2>
           <button @click="showAddresses = false"><i class="ti ti-close text-purple-500"></i></button>
@@ -63,10 +63,14 @@
           <li v-for="address in addresses" :key="address.uuid"
               class="w-full p-3 mb-5 border rounded-xl flex justify-between hover:shadow">
             <div>
-              <p>{{ address.full_name }}, {{ address.postal_code }}</p>
-              <small> <i class="ti ti-location-pin text-purple-500"></i> {{ address.address }}</small>
+              <small class="block">{{ address.full_name }}, {{ address.postal_code }}</small>
+              <small> <i class="ti ti-location-pin text-purple-500"></i>
+                {{ address.address }}
+              </small>
             </div>
-            <button class="text-sm text-purple-500">Select address</button>
+            <button class="text-sm text-purple-500" @click="setDefaultAddress(address)">
+              <small>Select address</small>
+            </button>
           </li>
         </ul>
       </div>
@@ -77,9 +81,12 @@
 <script lang="ts" setup>
 
 import {useAddress} from "@Modules/Checkout/Composables/useAddress";
-import {onMounted, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
 import None from "@/App/Common/Componets/Placeholders/None.vue";
+import {useStore} from "@/store/store";
+import {Address} from "@Modules/Checkout/Types/Address";
+import {MutationTypes} from "@/store/mutation-types";
 
 const props = defineProps({
   /**
@@ -88,12 +95,19 @@ const props = defineProps({
   trigger: {}
 });
 
+const store = useStore();
+
 const showAddresses = ref<boolean>(false)
+const defaultAddress = computed<Address>(() => store.getters.defaultAddress );
 
 /**
  * get addresses
  */
 const {loading, getAddresses, addresses} = useAddress();
+
+const setDefaultAddress = (address: Address) => {
+  store.commit(MutationTypes.SET_DEFAULT_ADDRESS, address)
+};
 
 // get addresses
 onMounted(() => {
@@ -101,8 +115,9 @@ onMounted(() => {
 })
 
 // get addresses
-watch(() => props.trigger, () => {
-  getAddresses()
+watch(() => props.trigger, async () => {
+  await getAddresses()
+  setDefaultAddress( addresses.value[0])
 })
 
 </script>
