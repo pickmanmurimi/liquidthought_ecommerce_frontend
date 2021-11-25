@@ -25,7 +25,7 @@ export default [
         name: 'ConfirmEmail',
         meta: {
             requiresAuth: false,
-            strictNoAuth: true,
+            strictNoAuth: false,
             title: 'ConfirmEmail',
         },
     }
