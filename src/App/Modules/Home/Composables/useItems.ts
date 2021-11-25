@@ -11,7 +11,10 @@ export function useItems() {
         loading: <boolean>false,
         items: [] as Item[],
         item: <Item>{},
-        links: {},
+        links: {
+            next: '',
+            prev: '',
+        },
     });
 
     /**
