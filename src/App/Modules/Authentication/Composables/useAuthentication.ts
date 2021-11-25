@@ -67,6 +67,7 @@ export function useAuthentication() {
         if (status.value === 200 || status.value === 401 ) {
             store.commit(MutationTypes.UNSET_TOKEN,undefined)
             store.commit(MutationTypes.UNSET_USER, undefined)
+            store.commit(MutationTypes.UNSET_DEFAULT_ADDRESS, undefined)
             await router.push({name: 'Login'})
         }
     }

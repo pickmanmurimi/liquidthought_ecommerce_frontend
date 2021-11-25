@@ -18,7 +18,7 @@
           </a>
         </div>
         <div class="mt-4 md:mt-0">
-          <router-link class="btn" :to="{ name: 'Home'}"> I wanna go home</router-link>
+          <router-link :to="{ name: 'Home'}" class="btn"> I wanna go home</router-link>
         </div>
       </div>
 

@@ -26,14 +26,17 @@ import RelatedItemCard from "@Modules/Home/Componets/RelatedItemCard.vue";
 import {useItems} from "@Modules/Home/Composables/useItems";
 import {onMounted} from "vue";
 import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
+import {useRoute} from "vue-router";
 
 /**
  * get related items
  */
 const {getRelatedItems, items, loading} = useItems();
+const route = useRoute();
+
 
 onMounted(() => {
-  getRelatedItems()
+  getRelatedItems(route.params.uuid.toString())
 })
 
 </script>

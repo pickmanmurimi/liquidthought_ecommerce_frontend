@@ -49,7 +49,6 @@ export function useAddress() {
         const { data } = await useFetch('user/address');
         addressData.loading = false;
         addressData.addresses = data.value.data;
-
     }
 
     return {

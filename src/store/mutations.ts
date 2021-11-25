@@ -3,6 +3,7 @@ import {StateType} from "@/store/state";
 import {User} from "@/App/Common/Types/User";
 import {MutationTree} from "vuex";
 import {OrderItem} from "@/App/Common/Types/OrderItem";
+import {Address} from "@Modules/Checkout/Types/Address";
 
 export type Mutations<S = StateType> = {
     [MutationTypes.SET_USER](state: S, payload: User): void
@@ -10,9 +11,11 @@ export type Mutations<S = StateType> = {
     [MutationTypes.ADD_TO_CART](state: S, payload: OrderItem): void
     [MutationTypes.REMOVE_FROM_CART](state: S, payload: OrderItem): void
     [MutationTypes.UPDATE_CART](state: S, payload: OrderItem): void
+    [MutationTypes.SET_DEFAULT_ADDRESS](state: S, payload: Address): void
     [MutationTypes.UNSET_USER](state: S): void
     [MutationTypes.UNSET_TOKEN](state: S): void
     [MutationTypes.CLEAR_CART](state: S): void
+    [MutationTypes.UNSET_DEFAULT_ADDRESS](state: S): void
 }
 
 export const mutations: MutationTree<StateType> & Mutations = {
@@ -47,5 +50,13 @@ export const mutations: MutationTree<StateType> & Mutations = {
     [MutationTypes.CLEAR_CART](state) {
         state.cart = [];
         localStorage.removeItem('cart');
+    },
+    [MutationTypes.SET_DEFAULT_ADDRESS](state, payload: Address) {
+        state.defaultAddress = payload;
+        localStorage.setItem('default_address', JSON.stringify(state.user));
+    },
+    [MutationTypes.UNSET_DEFAULT_ADDRESS](state) {
+        state.defaultAddress = { }
+        localStorage.removeItem('default_address');
     },
 }

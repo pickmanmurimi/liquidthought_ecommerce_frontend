@@ -34,6 +34,8 @@ export default async function (url:string, config:object = {}, $axiosInstance:Ax
 
   // make the axios request
   try {
+    formError.value = {};
+    status.value = 0;
     const result:AxiosResponse = await $axiosInstance.request({
       url,
       ...config,
