@@ -36,9 +36,9 @@ export function useItems() {
     /**
      * get related items from the api
      */
-    const getRelatedItems = async () => {
+    const getRelatedItems = async (uuid:string) => {
         itemsData.loading = true;
-        const { data } = await useFetch(`items/items`)
+        const { data } = await useFetch(`items/items/related-items/${uuid}`)
         itemsData.loading = false;
         itemsData.items = data.value?.data?.slice(0, 3)
     }
