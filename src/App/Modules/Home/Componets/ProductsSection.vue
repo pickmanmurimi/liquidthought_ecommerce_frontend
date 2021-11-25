@@ -10,30 +10,45 @@
     </div>
 
     <!--        product list-->
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-10">
+    <div id="item-list">
+      <div v-if="items.length !== 0" class="grid grid-cols-1 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-10">
 
-      <!--          product 1-->
-      <template v-for=" item in items" :key="item.uuid">
-        <ItemCard :item="item" data-aos="fade-left"></ItemCard>
-      </template>
-
+        <!--          product 1-->
+        <template v-for=" item in products" :key="item.uuid">
+          <ItemCard :item="item" data-aos="fade-left"></ItemCard>
+        </template>
+      </div>
     </div>
+
+
+    <button class="btn" v-if="links?.next" @click="getItems(links?.next )">
+      <span class="animate-pulse" v-if="loading"> loading . . . </span>
+      <span v-else>Load More Products</span>
+    </button>
+
   </div>
 </template>
 
 <script lang="ts" setup>
 import ItemCard from "./ItemCard.vue";
 import {useItems} from "@Modules/Home/Composables/useItems";
-import {onMounted} from "vue";
+import {onMounted, ref, watch} from "vue";
 import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
+import {Item} from "@/App/Common/Types/Item";
 
 /**
  * get products
  */
-const {getItems, items, loading} = useItems();
+const {getItems, items, loading, links} = useItems();
+
+const products = ref<Array<Item>>([]);
 
 onMounted(() => {
-  getItems()
+  getItems();
+})
+
+watch( items, (value) => {
+  products.value.push(...value);
 })
 
 

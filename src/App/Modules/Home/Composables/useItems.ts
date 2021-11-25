@@ -11,16 +11,18 @@ export function useItems() {
         loading: <boolean>false,
         items: [] as Item[],
         item: <Item>{},
+        links: {},
     });
 
     /**
      * get items from the api
      */
-    const getItems = async () => {
+    const getItems = async ( url:string = 'items/items?items=12') => {
         itemsData.loading = true;
-        const { data } = await useFetch('items/items')
+        const { data } = await useFetch(url)
         itemsData.loading = false;
         itemsData.items = data.value?.data
+        itemsData.links = data.value?.links
     }
 
     /**
