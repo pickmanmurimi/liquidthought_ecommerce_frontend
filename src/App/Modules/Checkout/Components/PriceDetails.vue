@@ -1,5 +1,10 @@
 <template>
   <div class="w-full rounded-xl bg-white p-8">
+    <div v-if="loading"
+         class="absolute z-30 top-0 left-0 flex w-full justify-center h-full items-center bg-gray-200 bg-opacity-5">
+      <OrbitLoader></OrbitLoader>
+    </div>
+
     <h1 class="pb-5 border-gray-200 border-b">Price Details</h1>
     <div class="grid gap-5 grid-cols-2 pt-5 pb-5 border-gray-200 border-b mb-5">
       <div>
@@ -33,6 +38,7 @@ import {useStore} from "@/store/store";
 import {Order} from "@Modules/Checkout/Types/Order";
 import {Address} from "@Modules/Checkout/Types/Address";
 import {useCheckout} from "@Modules/Checkout/Composables/useCheckout";
+import OrbitLoader from "@/App/Common/Componets/Loaders/OrbitLoader.vue";
 
 const store = useStore();
 const { checkout, loading} = useCheckout()
@@ -51,6 +57,7 @@ const defaultAddress = computed<Address>(() => {
 const total = computed<number>(() => items.value
     .reduce((sum, currentItem) => sum + currentItem.quantity * currentItem.item.unit_price, 0))
 
+// create the order
 const order = computed<Order>(() => {
   const orderItems:Order = { items: [], address_uuid: '' };
   orderItems['items'] = items.value.map((orderItems) => {

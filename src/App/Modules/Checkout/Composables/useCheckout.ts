@@ -28,7 +28,6 @@ export function useCheckout() {
      * @param order
      */
     const checkout = async (order: Order) => {
-        console.log(order)
         checkoutData.loading = true;
         const {status, formError} = await useFetch('items/checkout', {
             method: 'POST',
