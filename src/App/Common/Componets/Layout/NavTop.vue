@@ -8,13 +8,22 @@
   <!--    profile nav-->
   <div class="flex justify-between bg-white py-5 px-2 lg:px-32 text-sm ">
     <div class="whitespace-nowrap">
-      <a v-if="store.getters.isAuthenticated" class="mr-2 lg:mx-4 capitalize" href="#">Hello 👋
-        {{ store.getters.authenticatedUser.first_name }}</a>
-      <router-link v-else :to="{name: 'Register'}" class="mx-2 lg:mx-4">Create Account</router-link>
-      <router-link v-if="!store.getters.isAuthenticated" :to="{name: 'Login'}" class="mx-2 lg:mx-4">Login</router-link>
-      <a v-else class="mx-2 lg:mx-4" href="#" @click="logout">Logout</a>
+      <template v-if="store.getters.isAuthenticated">
+        <a class="mr-2 lg:mx-4 block capitalize" href="#">Hello 👋
+          {{ store.getters.authenticatedUser.first_name }}
+        </a>
+        <router-link :to="{name: 'Orders'}" class="lg:mx-4">My Orders</router-link>
+        <a class="mx-2 lg:mx-4" href="#" @click="logout">Logout</a>
+      </template>
+      <template v-else>
+        <router-link :to="{name: 'Register'}" class="mx-2 lg:mx-4">Create Account</router-link>
+        <router-link :to="{name: 'Login'}" class="mx-2 lg:mx-4">Login</router-link>
+      </template>
+
     </div>
-    <div><a href="tel:+27 (0) 10 005 7777">+27 (0) 10 005 7777</a></div>
+    <div>
+      <a class="" href="tel:+27 (0) 10 005 7777">+27 (0) 10 005 7777</a>
+    </div>
   </div>
 
   <!--    nav bar-->

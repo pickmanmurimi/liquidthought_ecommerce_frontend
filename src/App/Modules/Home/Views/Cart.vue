@@ -74,7 +74,6 @@ import {useStore} from "@/store/store";
 import CartItem from "@Modules/Home/Componets/CartItem.vue";
 import {OrderItem} from "@/App/Common/Types/OrderItem";
 import None from "@/App/Common/Componets/Placeholders/None.vue";
-import RelatedItemsSection from "@Modules/Home/Componets/RelatedItemsSection.vue";
 
 const store = useStore();
 

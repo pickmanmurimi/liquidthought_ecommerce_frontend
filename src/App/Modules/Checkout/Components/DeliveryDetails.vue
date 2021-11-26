@@ -20,37 +20,37 @@
         <small>Full name</small>
       </div>
       <div class="text-right">
-        <small>{{ defaultAddress.full_name }}</small>
+        <small>{{ defaultAddress?.full_name }}</small>
       </div>
       <div>
         <small>Address</small>
       </div>
       <div class="text-right">
-        <small>{{ defaultAddress.address }}</small>
+        <small>{{ defaultAddress?.address }}</small>
       </div>
       <div>
         <small>Postal code</small>
       </div>
       <div class="text-right">
-        <small>{{ defaultAddress.postal_code }}</small>
+        <small>{{ defaultAddress?.postal_code }}</small>
       </div>
       <div>
         <small>City</small>
       </div>
       <div class="text-right">
-        <small>{{ defaultAddress.city }}</small>
+        <small>{{ defaultAddress?.city }}</small>
       </div>
       <div>
         <small>State</small>
       </div>
       <div class="text-right">
-        <small>{{ defaultAddress.state }}</small>
+        <small>{{ defaultAddress?.state }}</small>
       </div>
       <div>
         <small>Country</small>
       </div>
       <div class="text-right">
-        <small>{{ defaultAddress.country }}</small>
+        <small>{{ defaultAddress?.country }}</small>
       </div>
     </div>
 
@@ -67,9 +67,9 @@
               class="w-full p-3 mb-5 border rounded-xl flex justify-between items-center
               hover:shadow relative overflow-hidden">
             <div>
-              <small class="block">{{ address.full_name }}, {{ address.postal_code }}</small>
+              <small class="block">{{ address?.full_name }}, {{ address?.postal_code }}</small>
               <small> <i class="ti ti-location-pin text-purple-500"></i>
-                {{ address.address }}
+                {{ address?.address }}
               </small>
             </div>
             <!--            actions-->
@@ -77,10 +77,10 @@
               <button class="text-sm text-purple-500" @click="selectAddress(address)">
                 <small class="block">  <i class="ti-location-pin"></i>  Select address</small>
               </button>
-              <button v-if="!address.default"
+              <button v-if="!address?.default"
                       class="text-sm text-white ml-2 absolute top-0 right-0 bg-purple-400 rounded-bl px-1"
                       @click="changeDefaultAddress(address)">
-                <small class="block"> <i class="ti-home"></i> Set default</small>
+                <small class="block"> <i class="ti-home"></i> Set as default</small>
               </button>
             </div>
 
