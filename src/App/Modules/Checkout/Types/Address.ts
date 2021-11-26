@@ -6,4 +6,5 @@ export type Address = {
     city?: string,
     state?: string,
     country?: string,
+    default?: boolean,
 }

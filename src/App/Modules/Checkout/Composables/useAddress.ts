@@ -42,6 +42,23 @@ export function useAddress() {
     }
 
     /**
+     * set default address
+     * @param addressUuid
+     */
+    const setDefaultAddress = async (addressUuid: string) => {
+        addressData.loading = true;
+        const { status } = await useFetch(`user/address/default/${addressUuid}`, {
+            method: 'PATCH',
+        });
+
+        addressData.loading = false;
+        addressData.status = status.value;
+        if (status.value === 201) {
+            await swal('Address set as default', '', 'success')
+        }
+    }
+
+    /**
      * add new address
      */
     const getAddresses = async () => {
@@ -54,6 +71,7 @@ export function useAddress() {
     return {
         ...toRefs(addressData),
         createAddress,
-        getAddresses
+        getAddresses,
+        setDefaultAddress
     }
 }
