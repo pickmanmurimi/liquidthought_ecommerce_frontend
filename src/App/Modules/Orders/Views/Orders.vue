@@ -46,7 +46,7 @@
           </template>
 
           <!--          none placeholder-->
-          <None v-if="loadedOrders.length === 0" text="No orders avilable"></None>
+          <None v-if="loadedOrders.length === 0 && !loading" text="No orders available"></None>
         </div>
 
       </div>
