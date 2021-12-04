@@ -11,7 +11,7 @@ export function useWishlist() {
      * @param item
      */
     const itemIsInWishlist = ( item: Item ): boolean => {
-        return store.getters.cart.find( cartItem => cartItem.id == item.id) != undefined;
+        return store.getters.wishlist.find( wishlistItem => wishlistItem.id == item.id) != undefined;
     }
 
     /**

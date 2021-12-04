@@ -20,7 +20,11 @@
         <router-link :to="{name: 'Login'}" class="mx-2 lg:mx-4">Login</router-link>
       </template>
 
-      <router-link :to="{name: 'Wishlist'}" class="mx-2 lg:mx-4">Wishlist</router-link>
+      <router-link :to="{name: 'Wishlist'}" class="mx-2 lg:mx-4 relative">
+        Wishlist
+        <span class="h-5 w-5 block bg-purple-500 rounded-full absolute -top-2 -right-5
+          flex items-center font-bold text-white justify-center">{{ wishlistItemsCount }}</span>
+      </router-link>
     </div>
     <div>
       <a class="" href="tel:+27 (0) 10 005 7777">+27 (0) 10 005 7777</a>
@@ -37,8 +41,8 @@
             class="font-bold text-5xl text-red-500">.</span></router-link>
       </div>
 
-      <div>
-        <!--        bag icon-->
+      <div class="flex space-x-4 items-center">
+        <!--        Cart-->
         <div class="relative">
           <router-link :to="{name: 'Cart'}">
             <ShoppingBag :size="44"></ShoppingBag>
@@ -64,6 +68,10 @@ const {logout, loading} = useAuthentication();
 
 const cartItemsCount = computed(() => {
   return store.getters.cart.length
+})
+
+const wishlistItemsCount = computed(() => {
+  return store.getters.wishlist.length
 })
 
 </script>

@@ -17,6 +17,9 @@
         <div class="flex space-x-2 items-center">
         </div>
         <small class="text-gray-400">Express delivery</small>
+        <button class="btn block mt-1 w-full" @click="addToCart(item); removeFromWishlist(item)">
+          <span>Add to cart</span>
+        </button>
       </div>
 
       <!--              pricing-->
@@ -44,10 +47,9 @@
 
 <script lang="ts" setup>
 
-import {computed, PropType} from "vue";
+import {PropType} from "vue";
 import {useCart} from "@Modules/Home/Composables/useCart";
 import {Router, useRouter} from "vue-router";
-import {OrderItem} from "@/App/Common/Types/OrderItem";
 import {Item} from "@/App/Common/Types/Item";
 import {useWishlist} from "@Modules/Home/Composables/useWishlist";
 
@@ -62,7 +64,7 @@ const props = defineProps({
  * remove cart item
  */
 const {removeFromWishlist} = useWishlist();
-
+const {addToCart} = useCart();
 
 const router: Router = useRouter();
 /**
