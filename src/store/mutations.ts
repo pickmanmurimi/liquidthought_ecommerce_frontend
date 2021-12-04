@@ -4,6 +4,7 @@ import {User} from "@/App/Common/Types/User";
 import {MutationTree} from "vuex";
 import {OrderItem} from "@/App/Common/Types/OrderItem";
 import {Address} from "@Modules/Checkout/Types/Address";
+import {Item} from "@/App/Common/Types/Item";
 
 export type Mutations<S = StateType> = {
     [MutationTypes.SET_USER](state: S, payload: User): void
@@ -39,6 +40,24 @@ export const mutations: MutationTree<StateType> & Mutations = {
         state.cart = state.cart.map( item =>  (payload.id === item.id) ? payload : item )
         localStorage.setItem('cart', JSON.stringify(state.cart));
     },
+    //
+    [MutationTypes.ADD_TO_WISHLIST](state, payload: Item) {
+        state.wishlist.push(payload)
+        localStorage.setItem('wishlist', JSON.stringify(state.wishlist));
+    },
+    [MutationTypes.REMOVE_FROM_WISHLIST](state, payload: Item) {
+        state.wishlist = state.wishlist.filter( item => item.id != payload.id )
+        localStorage.setItem('wishlist', JSON.stringify(state.wishlist));
+    },
+    [MutationTypes.UPDATE_WISHLIST](state, payload: Item) {
+        state.wishlist = state.wishlist.map( item =>  (payload.id === item.id) ? payload : item )
+        localStorage.setItem('wishlist', JSON.stringify(state.wishlist));
+    },
+    [MutationTypes.CLEAR_WISHLIST](state) {
+        state.wishlist = [];
+        localStorage.removeItem('wishlist');
+    },
+    //
     [MutationTypes.UNSET_USER](state) {
         state.user = { email: "", first_name: "", last_name: "", uuid: ""}
         localStorage.removeItem('user');
