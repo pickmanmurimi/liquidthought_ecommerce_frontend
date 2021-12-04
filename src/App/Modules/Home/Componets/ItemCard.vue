@@ -7,9 +7,12 @@
           class="bg-purple-700 rounded-xl absolute font-medium left-2 top-2 text-white text-sm p-1 px-2"> Sale </span>
     <!--            like-->
     <span
-        class="bg-gray-800 rounded-full h-8 w-8 block flex items-center justify-center absolute right-2 top-2">
+        @click="addToWishlist(item)"
+        :class="{ 'bg-purple-500' : itemIsInWishlist(item)}"
+        class="bg-gray-800 rounded-full h-8 w-8 block flex items-center hover:bg-purple-500 cursor-pointer
+        justify-center absolute right-2 top-2">
               <i class="ti-heart text-white font-bold"></i>
-            </span>
+    </span>
 
     <!--            img-->
     <div class="group relative">
@@ -39,6 +42,7 @@
 import {Router, useRouter} from "vue-router";
 import {Item} from "@/App/Common/Types/Item";
 import {PropType} from "vue";
+import {useWishlist} from "@Modules/Home/Composables/useWishlist";
 
 const props = defineProps({
   item: {
@@ -46,6 +50,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+const { addToWishlist, itemIsInWishlist } = useWishlist();
 
 const router: Router = useRouter();
 /**

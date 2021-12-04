@@ -26,4 +26,13 @@ export default [
             title: 'Cart',
         },
     },
+    {
+        path: '/wishlist',
+        component: () => import('../Views/Wishlist.vue'),
+        name: 'Wishlist',
+        meta: {
+            requiresAuth: false,
+            title: 'Wishlist',
+        },
+    },
 ];

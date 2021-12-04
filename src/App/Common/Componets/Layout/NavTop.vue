@@ -20,6 +20,7 @@
         <router-link :to="{name: 'Login'}" class="mx-2 lg:mx-4">Login</router-link>
       </template>
 
+      <router-link :to="{name: 'Wishlist'}" class="mx-2 lg:mx-4">Wishlist</router-link>
     </div>
     <div>
       <a class="" href="tel:+27 (0) 10 005 7777">+27 (0) 10 005 7777</a>
