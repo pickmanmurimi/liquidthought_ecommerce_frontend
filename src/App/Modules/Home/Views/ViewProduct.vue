@@ -45,7 +45,6 @@
               </p>
             </div>
 
-
             <router-link class="btn" v-if="itemIsInCart(item)" :to="{name: 'Cart'}">
               <ShoppingCart :size="20" class="inline mr-2"/>
               <span>View in cart</span>
@@ -54,7 +53,6 @@
               <ShoppingCart :size="20" class="inline mr-2"/>
               <span>Add to cart</span>
             </button>
-
 
           </div>
 
